@@ -30,6 +30,10 @@ body{
     padding: 0 2rem;
 }
 
+.form-field{
+	
+}
+
 .img{
 	display: flex;
 	justify-content: flex-end;

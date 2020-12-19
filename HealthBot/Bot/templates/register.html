@@ -14,26 +14,37 @@
 			<img src="./../static/Login/imgs/undraw_Access_account_re_8spm.svg">
 		</div>
 		<div class="login-content">
-			<form method="POST" action="index.html">
+			<form method="POST" action="">
+				{% csrf_token %}
 				<img src="./../static/Login/imgs/undraw_profile_pic_ic5t.svg">
 				<h3 class="title">LET'S GET YOU ONBOARD</h3>
            		<div class="input-field">
-           		   		<i class="fas fa-user"></i>
-           		   		<input type="text" placeholder="Name">
+					
+					{{ userform.username.errors }}
+					<i class="fas fa-user"></i>
+							{{ userform.username }}
+							 
+							  
            		</div>
            		<div class="input-field"> 
-           		    	<i class="fas fa-envelope"></i>  	   
-                           <input type="email" placeholder="Email"> 
+					<i class="fas fa-envelope"></i>
+					   {{ userform.email.errors }}
+	
+						   {{ userform.email }}
            		</div>
                 <div class="input-field"> 
-                         <i class="fas fa-lock"></i>
-                        <input type="password" placeholder="Password" >
+					<i class="fas fa-lock"></i>
+						{{ userform.password }}
+					{{ userform.password.errors }}
+					
             	</div>
 				<input type="submit" class="btn" value="Register">
 				<a href="/login">Already have an account ? Login</a>
             </form>
         </div>
     </div>
-    <script type="text/javascript" src="./../static/Login/main.js"></script>
+	<script type="text/javascript" src="./../static/Login/main.js"></script>
+	
+	
 </body>
 </html>
