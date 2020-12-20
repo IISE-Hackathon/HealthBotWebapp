@@ -9,29 +9,44 @@
 </head>
 <body>
 	<img class="wave" src="./../static/Login/imgs/wave.png">
+	<div class="loginerror" >{{ error }}</div>
 	<div class="container">
 		<div class="img">
 			<img src="./../static/Login/imgs/undraw_Access_account_re_8spm.svg">
 		</div>
+
 		<div class="login-content">
-			<form action="index.html">
+			<form method = "post" action="">
+				{% csrf_token %}
 				<img src="./../static/Login/imgs/undraw_profile_pic_ic5t.svg">
 				<h2 class="title">Welcome</h2>
            		<div class="input-field">
            		   		<i class="fas fa-user"></i>
-           		   		<input type="text" placeholder="Username">
+           		   		<input name="username" type="text" placeholder="Username">
            		</div>
            		<div class="input-field">
            		   <div class="i"> 
            		    	<i class="fas fa-lock"></i>
            		   </div>
-           		    	<input type="password" placeholder="Password">	   
+           		    	<input  name="password" type="password" placeholder="Password">	   
             	</div>
 				<input type="submit" class="btn" value="Login">
 				<a href="/register">New to our Platform ? Register</a>
             </form>
         </div>
     </div>
-    <script type="text/javascript" src="./../static/Login/main.js"></script>
+	<script type="text/javascript" src="./../static/Login/main.js"></script>
+	
+	<style>
+		.loginerror{
+			display: flex;
+			justify-content: center;
+			background-color:#3498DB;
+			color: white !important;
+			font-size: 20px;
+			font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+			padding: 5px 0px;
+		}
+	</style>
 </body>
 </html>
