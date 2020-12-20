@@ -4,11 +4,14 @@ from django.contrib.auth.decorators import login_required
 from .forms import RegisterationForm
 from django.contrib import messages
 
-# rendering the landing screen
 
+# landing screen rendering no post method allowed
 def landingScreen(request):
     return render(request,template_name = 'landingscreen.html')
 
+
+# login screen rendering with post method and errors handled 
+# only valid credentials allowed
 def loginScreen(request):
     if request.method == 'POST':
         user_name = request.POST.get('username')
@@ -26,6 +29,11 @@ def loginScreen(request):
 
     return render(request,'login.html',{'error':""} )
 
+
+# registration screen rendering and errors handled
+# unique usernames allowed 
+# Intaking 3 fields username, email and password 
+# no user email verification system (but can be implemented in fututre imporovements for security reasons)
 
 def registerScreen(request):
     if request.method == 'POST':
@@ -49,6 +57,7 @@ def registerScreen(request):
     return render(request,'register.html',{'userform': userform ,'error': ""} )
     
 
+# chat room : Private route allowed  only after login 
 @login_required
 def chatroom(request):
     return render(request,template_name = 'chatroom.html')
